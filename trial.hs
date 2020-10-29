@@ -9,7 +9,7 @@
 -- haskell uzantılı vscode dan proje oluştur terminalden dizine git ghci komutu ile çalıştır 
 -- :l <dosyaAdı> diyerek load et, devamında çalışacaktır.
 -- Yani demek istediğim burda yorum satırında olmayan functionlara ben terminalimden ulaşabilirim.
--- Yanii yeniden söylemek gerekirse //Prelude> kısmına ver yetkiyi. Sonra da function isimlerini kullanarak çalış.
+-- Yanii yeniden söylemek gerekirse //Prelude> kısmına function isimlerini kullanarak çalış.
 
 -- Unutma bunu!! Her değişiklik için yeniden load etmek isteyebilirsin :S
 
@@ -34,9 +34,9 @@ doubleSmallNumber x = if x > 100
 
 
 
--- Bizim için en önemli operatör cons? operatörü ":",
+-- Bizim için en önemli operatör cons operatörü ":",
 
--- listenin önüne eklnmesini sağlıyor [1,2,3]:[4,5,6] diyemeyiz, sadece sağ taraf liste olabilir. iki listeyi birleştirmeyi sağlamaz, sadece bir listeyi bir elemanı birleştirmei sağlar, liste her zaman sağda eleman her zaman solda olmalıdır.
+-- listenin önüne eklnmesini sağlıyor [1,2,3]:[4,5,6] diyemeyiz, sadece sağ taraf liste olabilir. iki listeyi birleştirmeyi sağlamaz, sadece bir listeyi bir elemanı birleştirmeyi sağlar, liste her zaman sağda - eleman her zaman solda olmalıdır.
 -- ghci> 'A':" SMALL CAT"  
 -- "A SMALL CAT"  
 -- ghci> 5:[1,2,3,4,5]  
@@ -77,7 +77,7 @@ doubleSmallNumber x = if x > 100
 
 
 -- Aşırı saçma bir şey daha
--- ghci> "ali" < "veli" dersen true, "ali" > "veli" dersen de false döner. Sebebi neydi ki? Sebebi index sayısı değil!! İlk index e bakıyoruz a > v midir? nope. Al işte veli büyük yani.
+-- ghci> "ali" < "veli" dersen true, "ali" > "veli" dersen de false döner. Sebebi neydi ki? Sebebi index sayısı değil!! İlk index e bakıyoruz a > v midir? nope. veli büyük yani.
 -- ghci> [1,2,3,4] > [2,3] de false döncektir çünkü 1 < 2
 -- "Alim" < "Ali" True
 
@@ -116,7 +116,7 @@ doubleSmallNumber x = if x > 100
 -- [5,4,3,2]   
 
 
--- Bunu görselleyelimde unutmayalım, resim dosyasını (list mosnter) ziyaret et :*
+-- Bunu görselleyelim de unutmayalım, resim dosyasını (list mosnter) ziyaret et.
 
 -- "take" takes number and a list. It extracts that many elements from the beginning of the list. Watch. // diyor ki baştan o kadar al bana ver.
 
