@@ -77,7 +77,7 @@ doubleSmallNumber x = if x > 100
 
 
 -- Aşırı saçma bir şey daha
--- ghci> "ali" < "veli" dersen true, ali" > "veli dersende false döner. Sebebi neydi ki? Sebebi index sayısı değil!! İlk index e bakıyoruz a > v midir? nope. Al işte veli büyük yani.
+-- ghci> "ali" < "veli" dersen true, "ali" > "veli" dersen de false döner. Sebebi neydi ki? Sebebi index sayısı değil!! İlk index e bakıyoruz a > v midir? nope. Al işte veli büyük yani.
 -- ghci> [1,2,3,4] > [2,3] de false döncektir çünkü 1 < 2
 -- "Alim" < "Ali" True
 
