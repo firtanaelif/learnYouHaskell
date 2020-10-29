@@ -241,3 +241,82 @@ ghci> let triangles = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2+b^
 -}
 
 -- Chapter 1 ve 2 bitti, 3 atlanılacak. Daha sonra dönmek üzere.
+
+-- Chapter 4: Syntax in Functions, Pattern matching
+
+{-
+Kararları hangi yapılarla alıyoruz? if?
+
+Temel aracımız bizimde Pattern Maching olacak.
+
+
+Bu bölüm Haskell'in bazı harika sözdizimsel yapılarını kapsayacak ve örüntü eşleştirmeyle başlayacağız.
+Örüntü eşleştirme, bazı verilerin uyması gereken kalıpları belirleme ve daha sonra uyup uymadığını kontrol etme ve verileri bu modellere göre yeniden yapılandırmayı içerir.
+
+Fonksiyonları tanımlarken, farklı desenler için ayrı fonksiyon gövdeleri tanımlayabilirsiniz. 
+Bu, basit ve okunabilir olan gerçekten düzgün bir koda götürür. 
+Herhangi bir veri türünde - sayılar, karakterler, listeler, tuples vb.
+Sağladığımız sayının yedi olup olmadığını kontrol eden gerçekten önemsiz bir fonksiyon yapalım.
+
+-}
+
+lucky :: (Integral a) => a -> String  
+lucky 7 = "LUCKY NUMBER SEVEN!"  
+lucky x = "Sorry, you're out of luck, pal!"  
+
+-- sayıya göre response dönüyor 
+
+sayMe :: (Integral a) => a -> String  
+sayMe 1 = "One!"  
+sayMe 2 = "Two!"  
+sayMe 3 = "Three!"  
+sayMe 4 = "Four!"  
+sayMe 5 = "Five!"  
+sayMe x = "Not between 1 and 5"
+-- 6 farklı pattern imiz var
+
+-- *Main> sayMe 6
+-- "Not between 1 and 5"
+-- *Main> sayMe 2
+-- "Two!"
+-- *Main>
+
+--------------------------------------------------------------
+
+factorial :: (Integral a) => a -> a  
+factorial 0 = 1  
+factorial n = n * factorial (n - 1)  
+-- *Main> factorial 5
+-- 120
+
+{-
+This is the first time we've defined a function recursively. 
+Recursion is important in Haskell and we'll take a closer look at it later. 
+But in a nutshell, this is what happens if we try to get the factorial of, say, 3. 
+It tries to compute 3 * factorial 2. The factorial of 2 is 2 * factorial 1, so for now we have 3 * (2 * factorial 1). factorial 1 is 1 * factorial 0, so we have 3 * (2 * (1 * factorial 0)). 
+Now here comes the trick — we've defined the factorial of 0 to be just 1 and because it encounters that pattern before the catch-all one, it just returns 1. 
+So the final result is equivalent to 3 * (2 * (1 * 1)). 
+Had we written the second pattern on top of the first one, it would catch all numbers, including 0 and our calculation would never terminate. 
+That's why order is important when specifying patterns and it's always best to specify the most specific ones first and then the more general ones later.
+-}
+
+--------------------------------------------------------------
+
+{-
+Pattern matching can also fail. If we define a function like this:
+
+charName :: Char -> String  
+charName 'a' = "Albert"  
+charName 'b' = "Broseph"  
+charName 'c' = "Cecil"  
+and then try to call it with an input that we didn't expect, this is what happens:
+
+ghci> charName 'a'  
+"Albert"  
+ghci> charName 'b'  
+"Broseph"  
+ghci> charName 'h'  
+"*** Exception: tut.hs:(53,0)-(55,21): Non-exhaustive patterns in function charName  
+-}
+
+--------------------------------------------------------------
